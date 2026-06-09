@@ -1,5 +1,9 @@
 """Streamlit web UI — Phase 8 deploy target (Streamlit Community Cloud)."""
 
+from bootstrap_path import ensure_src_on_path
+
+ensure_src_on_path()
+
 import streamlit as st
 
 from phase8.bootstrap import bootstrap_environment, get_backend_url, get_deployment_mode

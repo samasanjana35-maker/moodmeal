@@ -6,6 +6,10 @@ local development and automated tests.
 
 import sys
 
+from bootstrap_path import ensure_src_on_path
+
+ensure_src_on_path()
+
 from app.pipeline import run_pipeline
 from phase0.config.settings import get_settings
 from phase5 import render_response

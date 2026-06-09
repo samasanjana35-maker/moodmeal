@@ -791,9 +791,9 @@ flowchart LR
 
 | Setting | Value |
 |---|---|
-| **Main file path** | `src/phase2/web.py` |
+| **Main file path** | `streamlit_app.py` (repo root) |
 | **Python version** | 3.9+ |
-| **Install command** | `pip install -e .` (from `pyproject.toml`) |
+| **Install command** | `pip install -r requirements.txt` (includes `-e .`) |
 
 **Secrets (TOML in Streamlit Cloud dashboard):**
 
@@ -812,7 +812,7 @@ GROQ_API_KEY = "gsk_..."
 | 2 | Run `python -m phase1` locally once; commit `data/cache/restaurants.json` **or** allow first-run download on Cloud (slower cold start) |
 | 3 | Verify locally: `python -m phase2` → open `http://localhost:8501` |
 | 4 | Push to GitHub; connect repo in Streamlit Cloud |
-| 5 | Set main file to `src/phase2/web.py`; deploy |
+| 5 | Set main file to `streamlit_app.py` (repo root); deploy |
 | 6 | Smoke-test: submit preferences; confirm cards or empty state render |
 
 ### Data Flow (Monolith Deploy)

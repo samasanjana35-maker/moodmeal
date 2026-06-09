@@ -13,9 +13,12 @@ sys.path.insert(0, str(ROOT / "src"))
 def main() -> int:
   errors: list[str] = []
 
+  streamlit_entry = ROOT / "streamlit_app.py"
   web_app = ROOT / "src" / "phase2" / "web.py"
+  if not streamlit_entry.exists():
+    errors.append(f"Missing Streamlit Cloud entry: {streamlit_entry}")
   if not web_app.exists():
-    errors.append(f"Missing Streamlit entry: {web_app}")
+    errors.append(f"Missing Streamlit UI: {web_app}")
 
   requirements = ROOT / "requirements.txt"
   if not requirements.exists():
@@ -57,7 +60,7 @@ def main() -> int:
 
   print("OK: Phase 8 deploy check passed")
   print("Run locally: python -m phase8")
-  print("Streamlit Cloud main file: src/phase2/web.py")
+  print("Streamlit Cloud main file: streamlit_app.py")
   return 0
 
 

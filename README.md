@@ -66,9 +66,9 @@ python -m phase8
 
 | Setting | Value |
 |---------|-------|
-| Main file | `src/phase2/web.py` |
+| Main file | `streamlit_app.py` (repo root — **not** `src/app/main.py`) |
 | Python | 3.9+ |
-| Install | `pip install -r requirements.txt` or `pip install -e .` |
+| Install | `pip install -r requirements.txt` (includes `-e .`) |
 
 Add secrets from [.streamlit/secrets.toml.example](.streamlit/secrets.toml.example) (`GROQ_API_KEY` required for AI explanations).
 

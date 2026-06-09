@@ -7,9 +7,11 @@ DeploymentMode = Literal["monolith", "split"]
 
 _SECRET_KEYS = (
   "GROQ_API_KEY",
+  "HF_TOKEN",
   "LLM_MODEL",
   "USE_DATASET_CACHE",
   "DATA_CACHE_DIR",
+  "PREFER_BUNDLED_DATASET",
   "BACKEND_URL",
   "DEPLOYMENT_MODE",
 )

@@ -72,6 +72,8 @@ python -m phase8
 
 Add secrets from [.streamlit/secrets.toml.example](.streamlit/secrets.toml.example) (`GROQ_API_KEY` required for AI explanations).
 
+Restaurant data is loaded from the committed bundle at `data/bundled/restaurants.json` by default (no Hugging Face fetch at runtime). To refresh that file locally, run `python -m phase1` then `python scripts/bundle_dataset.py`. Optional `HF_TOKEN` in secrets enables Hub auth if you disable bundled loading.
+
 **Split mode** (optional): set `DEPLOYMENT_MODE=split` and `BACKEND_URL` in secrets when API runs on a separate host.
 
 ## Documentation

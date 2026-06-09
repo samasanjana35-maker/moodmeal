@@ -21,7 +21,14 @@ class Settings(BaseSettings):
   dataset_id: str = "ManikaSaini/zomato-restaurant-recommendation"
   dataset_split: str = "train"
   data_cache_dir: str = "data/cache"
+  bundled_dataset_path: str = "data/bundled/restaurants.json"
+  local_raw_dataset_path: str = "data/bundled/raw_records.json"
   use_dataset_cache: bool = True
+  prefer_bundled_dataset: bool = True
+  hf_token: Optional[str] = None
+  dataset_load_timeout_seconds: float = Field(default=90.0, gt=0)
+  dataset_max_retries: int = Field(default=3, ge=1)
+  dataset_retry_base_seconds: float = Field(default=2.0, gt=0)
   groq_api_key: Optional[str] = None
   llm_model: str = "llama-3.3-70b-versatile"
   llm_max_retries: int = Field(default=2, ge=0)
@@ -42,8 +49,20 @@ class Settings(BaseSettings):
     origins = [item.strip() for item in self.cors_origins.split(",") if item.strip()]
     return origins or ["*"]
 
+  def _resolve_project_path(self, value: str) -> Path:
+    candidate = Path(value)
+    if candidate.is_absolute():
+      return candidate
+    return PROJECT_ROOT / value
+
   def resolve_cache_path(self) -> Path:
-    return Path(self.data_cache_dir) / "restaurants.json"
+    return self._resolve_project_path(self.data_cache_dir) / "restaurants.json"
+
+  def resolve_bundled_dataset_path(self) -> Path:
+    return self._resolve_project_path(self.bundled_dataset_path)
+
+  def resolve_local_raw_dataset_path(self) -> Path:
+    return self._resolve_project_path(self.local_raw_dataset_path)
 
   @field_validator("top_n", "candidate_limit", mode="before")
   @classmethod

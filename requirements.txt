@@ -1,0 +1,12 @@
+# Streamlit Community Cloud — install with: pip install -r requirements.txt
+# Or use: pip install -e . (from pyproject.toml)
+
+pydantic>=2.0,<3.0
+pydantic-settings>=2.0,<3.0
+python-dotenv>=1.0,<2.0
+datasets>=2.14,<4.0
+huggingface_hub>=0.20,<1.0
+streamlit>=1.28,<2.0
+groq>=0.9,<1.0
+fastapi>=0.100,<1.0
+uvicorn[standard]>=0.23,<1.0

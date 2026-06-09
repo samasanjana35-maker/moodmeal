@@ -1,0 +1,12 @@
+.venv/
+data/cache/
+__pycache__/
+*.py[cod]
+.env
+.streamlit/secrets.toml
+*.egg-info/
+.pytest_cache/
+
+frontend/node_modules/
+frontend/.next/
+frontend/.env.local
